@@ -5,7 +5,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-API_ID = int(getenv("API_ID"))
+try:
+    API_ID = int(getenv("API_ID"))
+except (TypeError, ValueError):
+    API_ID = None  # or handle the error appropriately
+
 API_HASH = getenv("API_HASH")
 
 BOT_TOKEN = getenv("BOT_TOKEN" , "7403775017:AAGeSpSdZG7vq044xma9X5fRowbycmDBrqs")
